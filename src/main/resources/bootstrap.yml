@@ -1,0 +1,20 @@
+eureka:   # 配置eureka客户端，一定要bootstrap文件中配置，因为需要到注册中心获取配置中心的服务端的地址，如果配置在github上面的配置，那么将会找不到配置中心的服务端
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka  # eureka的暴露地址，直接注册
+    register-with-eureka: false
+spring:
+  application:
+    name: orderClient9002   # 配置项目的名称，也是github中对应配置文件的名称（去掉后缀）
+  cloud:
+    config:
+      discovery:
+        enabled: true   # 开启config的客户端
+        service-id: config-server   # 指定eureka中的配置中心服务端的实例名称
+      profile: dev   # 指定配置文件的环境
+      label: master  # 指定需要访问github上的分支，这里不填默认是master分支
+      
+      
+      
+      
+      
